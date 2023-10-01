@@ -18,22 +18,5 @@ class UserController extends Controller
         private AuthService $authService,
     ){    }
 
-    public function register(Request $request){
-        $email = $request->email;
-        $password = $request->password;
 
-        $data = $this->userService->findOneByEmail($email);
-        if($data){
-            throw new Exception("User already exists");
-        }
-        $password = $this->authService->hashPassword($password);
-        $user = $this->userService->newUser([
-            'email' => $email,
-            "name" => "",
-            "password" => $password
-        ]);
-
-
-        return Response::http($user, 201);
-    }
 }
