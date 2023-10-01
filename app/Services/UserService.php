@@ -8,12 +8,8 @@ use Exception;
 class UserService
 {
 
-    public function findOneByEmail(string $email){
+    public function findOneByEmail(string $email): User {
         $user = User::where("email", $email)->first();
-        if(!$user){
-            return new Exception("User not found");
-        }
-
         return $user;
     }
 
@@ -24,6 +20,12 @@ class UserService
     public function delteUserById(string $id): void {
         User::find($id)->first()->delete();
     }
+
+    public function newUser($data){
+        return User::create($data);
+    }
+
+
 
 
 }
