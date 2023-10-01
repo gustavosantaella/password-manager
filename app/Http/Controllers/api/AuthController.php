@@ -48,4 +48,8 @@ class AuthController extends Controller
         }
         return Response::http($this->authService->login($data, $password), 200);
     }
+
+    public function logout(){
+        auth('api')->logout();
+    }
 }

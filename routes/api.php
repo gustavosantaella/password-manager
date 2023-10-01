@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'auth'], function () {
     Route::post("/register", [AuthController::class, 'register']);
     Route::post("/login", [AuthController::class, 'login']);
+    Route::post("/logout", [AuthController::class, 'logout']);
 });
 
 Route::group(['prefix' => 'password'], function () {
@@ -32,7 +33,7 @@ Route::group(['prefix' => 'password'], function () {
 
 })->middleware("jwt.verify");
 
-Route::group(['prefix' => 'rsa'], function () {
-    Route::get("/generate", [RsaController::class, 'generate']);
+// Route::group(['prefix' => 'rsa'], function () {
+//     Route::get("/generate", [RsaController::class, 'generate']);
 
-});
+// });
