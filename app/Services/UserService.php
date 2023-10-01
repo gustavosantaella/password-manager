@@ -8,7 +8,7 @@ use Exception;
 class UserService
 {
 
-    public function findOneByEmail(string $email): User {
+    public function findOneByEmail(string $email): User|null {
         $user = User::where("email", $email)->first();
         return $user;
     }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\PassowrController;
+use App\Http\Controllers\Api\RsaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +25,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'auth'], function () {
     Route::post("/register", [AuthController::class, 'register']);
     Route::post("/login", [AuthController::class, 'login']);
+});
+
+Route::group(['prefix' => 'password'], function () {
+    Route::post("/register", [PassowrController::class, 'register']);
+
+});
+
+Route::group(['prefix' => 'rsa'], function () {
+    Route::get("/generate", [RsaController::class, 'generate']);
+
 });
