@@ -12,6 +12,7 @@ class Password extends Model
     protected $fillable = [
         "description",
         "password",
+        "username",
         "container_id",
         "created_by",
     ];

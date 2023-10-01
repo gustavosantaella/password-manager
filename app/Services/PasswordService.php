@@ -17,6 +17,7 @@ class PasswordService
             [
                 "description" => $data["description"],
                 "password" => $data["password"],
+                "username" => $data['username'],
                 "created_by" => $user->id,
             ]
         );
