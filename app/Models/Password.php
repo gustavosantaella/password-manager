@@ -13,12 +13,10 @@ class Password extends Model
         "description",
         "password",
         "container_id",
+        "created_by",
     ];
 
-    protected $casts = [
-        'password' => 'hashed',
 
-    ];
 
 
 }

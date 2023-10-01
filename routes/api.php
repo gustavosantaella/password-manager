@@ -30,7 +30,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'password'], function () {
     Route::post("/register", [PassowrController::class, 'register']);
 
-});
+})->middleware("jwt.verify");
 
 Route::group(['prefix' => 'rsa'], function () {
     Route::get("/generate", [RsaController::class, 'generate']);

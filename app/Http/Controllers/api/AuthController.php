@@ -32,7 +32,7 @@ class AuthController extends Controller
             "password" => $password
         ]);
 
-        $this->rsaService->generateKeys($user->id);
+        // $this->rsaService->generateKeys($user->id);
         return Response::http([
             ...collect($user)->toArray(),
         ], 201);
