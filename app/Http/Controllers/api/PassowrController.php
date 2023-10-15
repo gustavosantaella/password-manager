@@ -19,12 +19,11 @@ class PassowrController
         $toEncrypt = $request->get("password");
         $dataEncrypted = $this->rsaService->encrypt(data:$toEncrypt);
 
-        $response = $this->passwordService->create([
+         $this->passwordService->create([
             ...$request->all(),
             "password" => $dataEncrypted,
         ], $user);
 
-        $decrypt = $this->rsaService->decrypt($response->password);
-        return Response::http($decrypt, 201);
+        return Response::http(null, 201);
     }
 }
