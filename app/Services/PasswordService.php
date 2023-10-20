@@ -7,6 +7,7 @@ use App\Models\Password;
 use App\Models\Rsa;
 use App\Models\User;
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Collection;
 
 class PasswordService
 {
@@ -21,5 +22,13 @@ class PasswordService
                 "created_by" => $user->id,
             ]
         );
+    }
+
+    public function getPasswordsByUser(int $id): Collection {
+        return Password::where("created_by", $id)->get();
+    }
+
+    public function getPasswordsByIdAnUser($userId, $id): Collection {
+        return Password::where("id", $id)->where("created_by", $userId)->get();
     }
 }
