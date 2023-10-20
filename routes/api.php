@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ContainerController;
 use App\Http\Controllers\Api\PassowrController;
 use App\Http\Controllers\Api\RsaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,10 @@ Route::group(['prefix' => 'password'], function () {
     Route::post("/register", [PassowrController::class, 'register']);
 
 })->middleware("jwt.verify");
+
+Route::group(['prefix' => 'container'], function () {
+    Route::get("/containers", [ContainerController::class, 'index']);
+});
 
 // Route::group(['prefix' => 'rsa'], function () {
 //     Route::get("/generate", [RsaController::class, 'generate']);

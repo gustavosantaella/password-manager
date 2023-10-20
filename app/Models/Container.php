@@ -15,5 +15,4 @@ class Container extends Model
         "createdBy",
     ];
 
-
 }
